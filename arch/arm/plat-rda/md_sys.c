@@ -40,7 +40,7 @@
 #define MSYS_DUMP_FRAME
 #endif /* #if 0 */
 
-#define MSYS_DEBUG_CLIENT	1
+//#define MSYS_DEBUG_CLIENT	1
 
 #if 0
 #include <linux/ktime.h>
@@ -745,8 +745,8 @@ static void rda_msys_rx_work(struct work_struct *work)
 					pending_msg->status = phdr_ext->ret_val;
 
 #ifdef MSYS_DEBUG_CLIENT
-					//pr_info("<rda_msys>: pid = %d, %s: ext_len = %d\n",
-					//	current->pid, (pending_msg->pmsys_dev->name ? pending_msg->pmsys_dev->name : "null"), phdr_ext->ret_val);
+					pr_info("<rda_msys>: pid = %d, %s: ext_len = %d\n",
+						current->pid, (pending_msg->pmsys_dev->name ? pending_msg->pmsys_dev->name : "null"), phdr_ext->ret_val);
 #endif /* MSYS_DEBUG_CLIENT */
 					if (phdr_ext->ext_len) {
 						/* Bp wants to return some parameters to AP. */
