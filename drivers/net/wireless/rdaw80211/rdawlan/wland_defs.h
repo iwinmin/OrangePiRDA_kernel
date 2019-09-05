@@ -205,7 +205,7 @@ enum WLAND_CHIP_VERSION {
 //#define WLAND_P2P_SUPPORT
 
 /*define for power manager*/
-#define WLAND_POWER_MANAGER
+//#define WLAND_POWER_MANAGER
 
 /*define for flow ctrl*/
 #define WLAND_SDIO_FC_SUPPORT
