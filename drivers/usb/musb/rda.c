@@ -133,7 +133,7 @@ void rda_start_host(struct usb_bus *host)
 	u8 devctl;
 	struct usb_hcd * hcd;
 	struct musb *musb;
-	u8 power;
+	//u8 power;
 	unsigned long flags;
 	struct usb_otg	*otg;
 	unsigned long timeout;
@@ -148,9 +148,9 @@ void rda_start_host(struct usb_bus *host)
 	otg = musb->xceiv->otg;
 	spin_lock_irqsave(&musb->lock, flags);
 	/* disable high speed when host*/
-	power = musb_readb(regs, MUSB_POWER);
-	power &= ~MUSB_POWER_HSENAB;
-	musb_writeb(regs, MUSB_POWER, power);
+	//power = musb_readb(regs, MUSB_POWER);
+	//power &= ~MUSB_POWER_HSENAB;
+	//musb_writeb(regs, MUSB_POWER, power);
 
 	devctl = MUSB_DEVCTL_SESSION;
 	musb_writeb(regs, MUSB_DEVCTL, devctl);
@@ -186,7 +186,7 @@ void rda_stop_host(struct usb_bus *host)
 	struct usb_hcd * hcd;
 	struct musb *musb;
 	struct usb_otg	*otg;
-	u8 power;
+	//u8 power;
 	unsigned long flags;
 
 	hcd = bus_to_hcd(host);
@@ -199,9 +199,9 @@ void rda_stop_host(struct usb_bus *host)
 	spin_lock_irqsave(&musb->lock, flags);
 
 	/* enable high speed when device*/
-	power = musb_readb(regs, MUSB_POWER);
-	power |= MUSB_POWER_HSENAB;
-	musb_writeb(regs, MUSB_POWER, power);
+	//power = musb_readb(regs, MUSB_POWER);
+	//power |= MUSB_POWER_HSENAB;
+	//musb_writeb(regs, MUSB_POWER, power);
 
 	musb->is_active = 0;
 	otg->default_a = 0;
